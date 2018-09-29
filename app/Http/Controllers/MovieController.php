@@ -27,6 +27,15 @@ class MovieController extends Controller
             'end' => date('Y-m-d',strtotime(date('Y-m-d')." +1 day"))
         ];
 
+        if ($request->isMethod('post')) {
+            //post parameters in filter
+            $filterData = $request->validate([
+                'start' => 'required|date_format:Y-m-d',
+                'end' => 'required|date_format:Y-m-d',
+            ]);
+            unset($_POST);
+        }
+
         $sessions = Sessions::query()->whereBetween('start', $filterData )->get();
 
         return view('cinema.index',compact('sessions','filterData'));
