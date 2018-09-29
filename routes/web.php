@@ -15,5 +15,9 @@
 Route::get('/', 'MovieController@index');
 
 Route::post('/', 'MovieController@index');
+
 //ajax request
 Route::post('/reservation','AjaxController@reserve');
+
+//creating for the unit test
+Route::get('/session/{id}', 'MovieController@oneSession');
