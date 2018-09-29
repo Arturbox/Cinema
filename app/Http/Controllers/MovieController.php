@@ -47,7 +47,8 @@ class MovieController extends Controller
     public function oneSession($id)
     {
         $sessions = Sessions::with('purchase')->where('id',$id)->first();
-        return $sessions->tickets-count($sessions->purchase);
+
+        return response()->json($sessions->tickets-count($sessions->purchase));
     }
 
 
