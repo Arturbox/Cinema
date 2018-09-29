@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'MovieController@index');
+
+Route::post('/', 'MovieController@index');
+//ajax request
+Route::post('/reservation','AjaxController@reserve');
