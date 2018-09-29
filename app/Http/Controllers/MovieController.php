@@ -38,6 +38,18 @@ class MovieController extends Controller
     }
 
 
+    /**
+     * creating for the unit test
+     *
+     * @return integer
+     */
+
+    public function oneSession($id)
+    {
+        $sessions = Sessions::with('purchase')->where('id',$id)->first();
+        return $sessions->tickets-count($sessions->purchase);
+    }
+
 
 
 
