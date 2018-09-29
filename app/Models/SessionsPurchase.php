@@ -16,4 +16,5 @@ class SessionsPurchase extends Model
 
     protected $foreignKey = 'session_id';
 
+
 }
